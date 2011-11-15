@@ -1,0 +1,9 @@
+yeahconsole*toggleKey: None+F12
+yeahconsole*consoleHeight: 20
+yeahconsole*aniDelay: 0
+yeahconsole*stepSize: 10
+yeahconsole*faceName: ProFontWindows:style=Regular
+yeahconsole*faceSize: 10 
+yeahconsole*keyFull: None+F11
+yeahconsole*background: #292929 
+yeahconsole*foreground: #CECECE
