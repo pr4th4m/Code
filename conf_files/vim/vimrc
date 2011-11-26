@@ -59,6 +59,6 @@ inoremap # X#
 " fold , current line and cursur color
 highlight CursorColumn term=none cterm=none ctermbg=292929
 highlight CursorLine term=none cterm=none ctermbg=292929 
-highlight Folded term=none cterm=none ctermbg=292929 
+highlight Folded term=none cterm=none ctermbg=292929
 highlight LineNr term=none cterm=none ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 highlight Folded term=none cterm=none ctermbg=292929
