@@ -1,10 +1,16 @@
 # The following function will print the data dictionary for the given table
 # Usage :-> python data_dict.py host_name user_name password db_name
+# Dependencies : python and xlwt ( python module for excel )
 import MySQLdb
 import sys
-import ipdb
-from xlwt import *
 import os
+
+# try to import xlwt or raise an error
+try :
+    from xlwt import *
+except :
+    print "You do not have python xlwt installed"
+    sys.exit()
 
 
 class DataDict():
@@ -22,6 +28,7 @@ class DataDict():
             db = args[4]
         except :
             print "Usage : python data_dict.py host_name user_name password db_name"
+            print "Exp   : python data_dict.py localhost pratz pratz@123 test_db"
             sys.exit()
 
         # try to connect to database
@@ -47,22 +54,11 @@ class DataDict():
             desc_dict[table] = self.cur.fetchall()
         return desc_dict
 
-    def print_datadict(self, desc_dict):
-        """ print the data dict on console """
-
-        data = "Field \t\t\t Type \t\t Null \t Key \t Default \t\t Extra \n"
-        for table in desc_dict :
-            data = data + "\n" + table
-            for desc in desc_dict[table] :
-                data = data + desc[0] + "\t\t\t"+ desc[1] + "\t\t" + desc[2] + "\t" + desc[3] + "\t" +  \
-                str(desc[4]) + "\t\t" + desc[5]
-        print data
-        f = open("/home/pratz/Desktop/dd.doc","w")
-        f.write(data)
-        f.close()
-
     def write_datadict(self, desc_dict):
         """ method to write to excel file """
+
+        # sort the dict
+        desc_list =  sorted(desc_dict.keys())
 
         # define a work book
         work_book = Workbook()
@@ -84,7 +80,7 @@ class DataDict():
             head_col_count = head_col_count + 1
 
         row_count = 1
-        for table in desc_dict :
+        for table in desc_list :
             work_sheet.write(row_count,0,table,head_style)
             row_count = row_count + 1
             for desc in desc_dict[table] :
@@ -104,5 +100,5 @@ if __name__ == '__main__' :
     dd = DataDict()
     dd.get_db(sys.argv)
     desc_dict = dd.get_table_desc(dd.get_tables())
-    # dd.print_datadict(desc_dict)
     dd.write_datadict(desc_dict)
+    print "Success ! A file named Data_Dictionary.xls is created in your current directory"
