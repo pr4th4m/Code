@@ -1,0 +1,5 @@
+data/.hgignore.i
+data/.project.i
+data/.pydevproject.i
+data/src/dictconfig.py.i
+data/src/test_dictconfig.py.i
