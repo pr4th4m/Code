@@ -1,2 +1,36 @@
 2012-03-16 17:58:24,845 validation line:15   ERROR    Please define project path in config.py .
 2012-03-16 17:59:11,521 validation line:14   ERROR    Please define project path in config.py .
+2012-03-17 02:13:47,269 args     line:46   ERROR    Failed to get element 2 for sys args
+2012-03-17 02:14:20,029 args     line:46   ERROR    Failed to get element 2 for sys args
+2012-03-17 02:17:46,971 utils    line:34   ERROR    Failed to get entity for name immos. get() returned more than one EntityModel -- it returned 3! Lookup parameters were {'is_active': True, 'entitytranslationmodel__name__icontains': 'immos', 'is_delete': False}
+2012-03-17 02:19:52,129 utils    line:35   ERROR    Failed to get entity for name immos. 'Manager' object has no attribute 'list'
+2012-03-17 03:00:06,585 args     line:59   ERROR    Failed to get element 3 for sys args
+2012-03-17 03:09:31,519 args     line:71   ERROR    Failed to covert to Python standards.
+2012-03-17 03:09:40,958 args     line:71   ERROR    Failed to covert to Python standards.
+2012-03-17 03:09:49,721 args     line:71   ERROR    Failed to covert to Python standards.
+2012-03-17 03:09:56,710 args     line:71   ERROR    Failed to covert to Python standards.
+2012-03-17 03:10:29,745 args     line:71   ERROR    Failed to covert to Python standards.
+2012-03-17 03:10:36,389 args     line:71   ERROR    Failed to covert to Python standards.
+2012-03-17 03:10:42,761 args     line:71   ERROR    Failed to covert to Python standards.
+2012-03-17 03:11:10,567 args     line:71   ERROR    Failed to covert to Python standards.
+2012-03-17 03:23:40,997 utils    line:51   ERROR    Failed to get event with id 1. global name 'EventModel' is not defined
+2012-03-17 03:23:55,053 utils    line:52   ERROR    Failed to get event with id 1. global name 'EventModel' is not defined
+2012-03-17 03:31:17,089 args     line:46   ERROR    Failed to get element 2 for sys args
+2012-03-17 03:31:28,341 args     line:59   ERROR    Failed to get element 3 for sys args
+2012-03-17 03:31:45,133 args     line:71   ERROR    Failed to covert to Python standards.
+2012-03-17 03:45:51,741 utils    line:65   ERROR    Failed to get Exhibitor. global name 'ExhibitorModel' is not defined
+2012-03-17 04:23:21,242 args     line:46   ERROR    Failed to get element 2 for sys args
+2012-03-17 04:23:53,633 args     line:59   ERROR    Failed to get element 3 for sys args
+2012-03-17 04:24:46,390 args     line:59   ERROR    Failed to get element 3 for sys args
+2012-03-17 04:25:23,859 args     line:71   ERROR    Failed to covert to Python standards.
+2012-03-17 04:31:22,756 args     line:71   ERROR    Failed to covert to Python standards.
+2012-03-17 04:32:36,776 utils    line:103  ERROR    Failed to add exhibitor token.'int' object is unsubscriptable
+2012-03-17 04:33:20,480 utils    line:103  ERROR    Failed to add exhibitor token.'int' object is unsubscriptable
+2012-03-17 04:33:28,417 utils    line:103  ERROR    Failed to add exhibitor token.'int' object is not iterable
+2012-03-17 04:34:24,058 utils    line:103  ERROR    Failed to add exhibitor token.'int' object is not iterable
+2012-03-17 04:34:30,862 args     line:59   ERROR    Failed to get element 3 for sys args
+2012-03-17 04:35:42,181 args     line:59   ERROR    Failed to get element 3 for sys args
+2012-03-17 04:36:17,945 args     line:71   ERROR    Failed to covert to Python standards.
+2012-03-17 04:38:10,960 args     line:71   ERROR    Failed to covert to Python standards.
+2012-03-17 04:38:23,402 args     line:71   ERROR    Failed to covert to Python standards.
+2012-03-17 04:38:39,303 args     line:71   ERROR    Failed to covert to Python standards.

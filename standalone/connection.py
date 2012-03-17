@@ -17,6 +17,7 @@ def connect(path=PROJECT_PATH,settings=PROJECT_SETTINGS):
 
     try :
         sys.path.append(path)
+        sys.path.append(os.path.abspath(os.path.join(os.path.abspath(path),os.path.pardir)))
     except Exception, e :
         LOGGER.error("Failed to set project path in OS sys path. " + str(e))
         sys.exit(1)

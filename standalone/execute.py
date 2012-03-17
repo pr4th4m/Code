@@ -19,4 +19,7 @@ from standalone.args import args_one
 connect(path=PROJECT_PATH, settings=PROJECT_SETTINGS)
 
 # check for function name in args element one
-args_one(sys.argv)
+request_function = args_one(sys.argv)
+
+# Call the function in scripts
+request_function()

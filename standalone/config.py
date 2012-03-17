@@ -5,11 +5,16 @@ import os
 
 
 # set django project path ( complete path till project directory )
-PROJECT_PATH = '/home/pratz/www/portimmo/branches/development/code'
+PROJECT_PATH = '/home/pratz/www/portimmo/trunk/code/portimmo'
 
 # set django project settings file
 PROJECT_SETTINGS = 'portimmo.settings'
 
+# set domain
+SITE_DOMAIN = 'portimmo.com'
+
+# set language
+LANGUAGE_CODE = 'en'
 
 # get base / current directory
 BASE_DIR = os.path.abspath(os.getcwd())
