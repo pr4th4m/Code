@@ -34,3 +34,10 @@
 2012-03-17 04:38:10,960 args     line:71   ERROR    Failed to covert to Python standards.
 2012-03-17 04:38:23,402 args     line:71   ERROR    Failed to covert to Python standards.
 2012-03-17 04:38:39,303 args     line:71   ERROR    Failed to covert to Python standards.
+2012-04-05 05:39:56,505 args     line:47   ERROR    Failed to get element 2 for sys args
+2012-04-05 05:41:11,273 args     line:47   ERROR    Failed to get element 2 for sys args
+2012-04-05 05:45:53,877 utils    line:113  ERROR    Failed to open File.
+2012-04-05 07:12:21,457 args     line:47   ERROR    Failed to get element 2 for sys args
+2012-04-05 07:13:11,529 args     line:60   ERROR    Failed to get element 3 for sys args
+2012-04-05 07:15:19,641 args     line:60   ERROR    Failed to get element 3 for sys args
+2012-04-05 07:16:32,666 utils    line:35   ERROR    Failed to get language for language code spe.LanguageModel matching query does not exist.

@@ -1,3 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
-let g:netrw_dirhist_1='/var/www/portimmo/trunk/src/portimmo'
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/home/pratz/www/tradeprocess/trunk'
+let g:netrw_dirhist_2='/home/pratz/www/tradeprocess/trunk/code'
+let g:netrw_dirhist_3='/home/pratz/www/tradeprocess/trunk/code/tradeprocess'
+let g:netrw_dirhist_4='/home/pratz/Desktop'
+let g:netrw_dirhist_5='/home/pratz/www/portimmo/trunk/.svn'
+let g:netrw_dirhist_6='/home/pratz/www/portimmo/trunk/code/logs'
+let g:netrw_dirhist_7='/home/pratz/www/portimmo/trunk/code/portimmo'
+let g:netrw_dirhist_8='/home/pratz/Desktop'

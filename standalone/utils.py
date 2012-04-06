@@ -10,6 +10,8 @@ from portimmo.language.models import LanguageModel
 from portimmo.entity.models import EntityModel
 from portimmo.event.models import EventModel
 from portimmo.exhibitor.models import ExhibitorModel, ExhibitorTokenModel
+from portimmo.country.models import CountryModel, CountryTranslationModel
+from portimmo.country.country import Country, CountryTranslation
 from standalone.config import SITE_DOMAIN, LANGUAGE_CODE, LOGGER
 
 EVENT_ID = 1
@@ -26,11 +28,13 @@ def get_organization(organization_domain=SITE_DOMAIN):
 
 def get_language(code=LANGUAGE_CODE) :
     """ Fucntion to get project language """
+
     try :
         language = LanguageModel.objects.get(code=code)
     except Exception, e :
         LOGGER.error('Failed to get language for language code %s.' % code + str(e))
         language = None
+        sys.exit(1)
 
     return language
 
@@ -70,7 +74,6 @@ def get_exhibitor_by_event_n_entity(organization=None,language=None,event=None,e
 
     return status, exhibitor
 
-
 def get_token_by_exhibitor(organization=None,language=None,exhibitor=None) :
     """ Function to get exhibitor tokens by exhibitor """
     status = True
@@ -104,3 +107,54 @@ def add_token_to_exhibitor(organization=None,language=None,exhibitor_token=None,
         status = False
 
     return status
+
+def open_file(file,mode='r'):
+    """ Function to open a file """
+    status = True
+    try :
+        file_object = open(file,mode)
+    except :
+        LOGGER.error('Failed to open File.')
+        file_object = None
+        status = False
+
+    return status, file_object
+
+def add_country_code(code_list=[]) :
+    """ Function to set / add country code in CountryModel """
+
+    country_obj = Country()
+
+    for code in code_list :
+        # check if country code already exist
+        status ,country = country_obj.get_by_code(data={'country_code':code})
+
+        if not status :
+            # save in CountryModel
+            country_new_obj = CountryModel()
+            country_new_obj.code = code
+            country_new_obj.save()
+
+def add_country(language=None,country_dict={}) :
+    """ Function used to add country """
+
+    country_obj = Country(language=language)
+    country_trans_obj = CountryTranslation()
+
+    for code, country_name in country_dict.items() :
+        # check if country code already exist
+        status ,country = country_obj.get_by_code(data={'country_code':code})
+
+        if status :
+            # check if country traslation with country and language exists
+            trans_status, country_trans = country_trans_obj.get_by_country_n_language(data={'language':language,
+                'country':country})
+
+            if not trans_status :
+                country_trans = CountryTranslationModel()
+
+            country_trans.country = country
+            country_trans.language = language
+            country_trans.name = country_name
+            country_trans.save()
+

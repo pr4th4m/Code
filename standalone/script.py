@@ -3,10 +3,12 @@
 
 # python imports
 import sys
+import json
 
 # project imports
 from standalone.utils import get_organization, get_language, get_entity_by_name, get_event_by_id, \
-        get_exhibitor_by_event_n_entity, get_token_by_exhibitor, add_token_to_exhibitor
+        get_exhibitor_by_event_n_entity, get_token_by_exhibitor, add_token_to_exhibitor, open_file, \
+        add_country_code, add_country
 from standalone.args import args_two, args_three, check_option, check_format, check_number
 from standalone.config import LOGGER
 
@@ -120,3 +122,74 @@ def set_token():
         sys.exit(1)
 
     LOGGER.info('Congratulations! Tokens added successfully.')
+
+def set_country_code() :
+    """ Function to set country code """
+
+
+    # get args ( element two )
+    status, country_code_file = args_two(sys.argv)
+    if not status :
+        LOGGER.info("Please provide Country Code file.")
+        LOGGER.info("Usage : python execute set_country_code <CountryCodeFile>.")
+        sys.exit(1)
+
+
+    # open the given file
+    status, file = open_file(country_code_file)
+    if not status :
+        LOGGER.info('Please check file location.')
+        sys.exit(1)
+
+    # read content
+    country_list = file.read()
+
+    # load json format
+    country_list = json.loads(country_list)
+
+    # get country code list
+    country_code_list = [ k for k in country_list ]
+
+    # add country code to CountryModel
+    add_country_code(code_list=country_code_list)
+
+    LOGGER.info('Congratulations! Country Code added successfully.')
+
+def set_country():
+    """ Function used to set country """
+
+
+    # get args ( element two )
+    status, language_code = args_two(sys.argv)
+    if not status :
+        LOGGER.info("Please provide Language Code.")
+        LOGGER.info("Usage : python execute set_country <LanguageCode> <CountryCodeFile>.")
+        sys.exit(1)
+
+    # get args ( element three )
+    status, country_file = args_three(sys.argv)
+    if not status :
+        LOGGER.info("Please provide Country file.")
+        LOGGER.info("Usage : python execute set_country <LanguageCode> <CountryCodeFile>.")
+        sys.exit(1)
+
+
+    # get language
+    language = get_language(code=language_code)
+
+    # open the given file
+    status, file = open_file(country_file)
+    if not status :
+        LOGGER.info('Please check file location.')
+        sys.exit(1)
+
+    # read content
+    country_list = file.read()
+
+    # load json format
+    country_list = json.loads(country_list)
+
+    # add country to CountryTranslationModel
+    add_country(language=language,country_dict=country_list)
+
+    LOGGER.info('Congratulations! Countries added successfully.')
